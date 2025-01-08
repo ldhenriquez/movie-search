@@ -1,0 +1,11 @@
+<div *ngIf="movie">
+  <h1>{{ movie.title }}</h1>
+  <p>{{ movie.overview }}</p>
+  <ul>
+    <li><strong>Release Date:</strong> {{ movie.release_date }}</li>
+    <li><strong>Duration:</strong> {{ movie.runtime }} mins</li>
+    <li><strong>Rating:</strong> {{ movie.vote_average }}</li>
+  </ul>
+  <h2>Cast</h2>
+  <p>Additional cast details can be fetched here...</p>
+</div>
