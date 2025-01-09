@@ -1,0 +1,323 @@
+// .search-container {
+//   max-width: 800px;
+//   margin: 0 auto;
+//   padding: 20px;
+//   text-align: center;
+
+//   .title{
+//     font-family: 'Roboto', sans-serif;
+//   }
+
+//   .movie-list {
+//     max-width: 900px;
+//     margin: 0 auto;
+//     padding: 20px;
+//     font-family: 'Arial', sans-serif;
+
+//     ul {
+//       list-style: none;
+//       padding: 0;
+
+//       .movie-item {
+//         background-color: #f9f9f9;
+//         border: 1px solid #ddd;
+//         border-radius: 8px;
+//         margin-bottom: 15px;
+//         padding: 15px;
+//         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//         transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+//         &:hover {
+//           transform: translateY(-3px);
+//           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+//         }
+
+//         .movie-title {
+//           font-size: 1.5em;
+//           color: #333;
+//           margin: 0 0 10px;
+//           font-weight: bold;
+//         }
+
+//         .movie-description {
+//           font-size: 1em;
+//           color: #555;
+//           line-height: 1.5;
+//           margin: 0;
+//         }
+//       }
+//     }
+//   }
+
+
+//   input {
+//     width: 70%;
+//     padding: 10px;
+//     margin: 10px 0;
+//   }
+
+//   button {
+//     padding: 10px 20px;
+//     margin: 10px;
+//     background-color: #007BFF;
+//     color: white;
+//     border: none;
+//     cursor: pointer;
+//     border-radius: 4px;
+//     height: 40px;
+
+//     &:disabled {
+//       background-color: #CCCCCC;
+//       cursor: not-allowed;
+//     }
+//   }
+
+//   .pagination {
+//     margin-top: 20px;
+//   }
+// }
+
+$primary-color: #6366f1;
+$secondary-color: #ec4899;
+$background-light: #f9fafb;
+$background-dark: #111827;
+$text-primary: #111827;
+$text-secondary: #6b7280;
+$border-radius: 1rem;
+$transition: all 0.3s ease;
+
+// Mixins
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@mixin gradient-text {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.search-container {
+  // max-width: 1200px;
+  // margin: 0 auto;
+  padding: 2rem;
+
+  .content-search{
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  // Título principal
+  .title {
+    @include gradient-text;
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  // Barra de búsqueda
+  input {
+    padding: 1rem 1.5rem;
+    border: 2px solid rgba($primary-color, 0.1);
+    border-radius: $border-radius;
+    font-size: 1.1rem;
+    transition: $transition;
+    background: rgba(255, 255, 255, 0.9);
+    @media (min-width: 768px) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 4px rgba($primary-color, 0.1);
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+
+  // Botón de búsqueda
+  button {
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: $border-radius;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($primary-color, 0.4);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  // Lista de películas
+  .movie-list {
+    margin-top: 2rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    // Cada película
+    .movie-item {
+      @include glass-effect;
+      border-radius: $border-radius;
+      overflow: hidden;
+      transition: $transition;
+      border: 1px solid rgba($primary-color, 0.1);
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-color: $primary-color;
+      }
+
+      a {
+        display: block;
+        padding: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .movie-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $text-primary;
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+          content: '→';
+          opacity: 0;
+          transform: translateX(-10px);
+          transition: $transition;
+        }
+
+        &:hover::after {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .movie-description {
+        color: $text-secondary;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+
+  // Paginación
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    button {
+      background: white;
+      color: $primary-color;
+      border: 2px solid $primary-color;
+      padding: 0.5rem 1.5rem;
+
+      &:hover:not(:disabled) {
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        color: white;
+      }
+
+      &:disabled {
+        border-color: $text-secondary;
+        color: $text-secondary;
+        background: #f3f4f6;
+      }
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  .search-container {
+    background-color: $background-dark;
+
+    input {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: white;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .movie-item {
+      background: rgba(255, 255, 255, 0.05);
+
+      .movie-title {
+        color: white;
+      }
+
+      .movie-description {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    .pagination button {
+      background: transparent;
+
+      &:disabled {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+// Optimizaciones para accesibilidad
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

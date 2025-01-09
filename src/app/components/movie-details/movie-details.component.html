@@ -1,4 +1,4 @@
-<div *ngIf="movie">
+<!-- <div class="movie-details" *ngIf="movie">
   <h1>{{ movie.title }}</h1>
   <p>{{ movie.overview }}</p>
   <ul>
@@ -7,5 +7,36 @@
     <li><strong>Rating:</strong> {{ movie.vote_average }}</li>
   </ul>
   <h2>Cast</h2>
-  <p>Additional cast details can be fetched here...</p>
+  <ul *ngIf="cast.length">
+    <li *ngFor="let actor of cast">
+      <strong>{{ actor.name }}</strong> as {{ actor.character }}
+    </li>
+  </ul>
+  <p *ngIf="!cast.length">No cast information available.</p>
+  <button (click)="goBack()" class="back-button">Back to Search</button>
+</div> -->
+<div class="movie-details">
+  <div class="movie-poster">
+    <img [src]="imageUrl + movie?.poster_path" alt="{{ movie?.title }}" />
+  </div>
+  <div class="movie-info">
+    <h2 class="movie-title">{{ movie?.title }}</h2>
+    <p class="release-date">{{ movie?.release_date | date }}</p>
+    <p class="movie-description">{{ movie?.overview }}</p>
+    <div class="movie-rating">
+      <span>⭐ {{ movie?.vote_average }}</span>
+    </div>
+    <button class="btn-watch">Watch Now</button>
+
+    <!-- Cast Section -->
+    <div class="movie-cast">
+      <h3>Cast</h3>
+      <ul *ngIf="cast.length">
+        <li *ngFor="let actor of cast">
+          <strong>{{ actor.name }}</strong> <span *ngIf="actor.character">as {{ actor.character }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+

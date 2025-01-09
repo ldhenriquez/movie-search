@@ -1,0 +1,434 @@
+// .movie-details {
+//   max-width: 800px;
+//   margin: 0 auto;
+//   padding: 20px;
+//   background-color: #f9f9f9;
+//   border-radius: 8px;
+//   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+//   h1 {
+//     font-size: 2em;
+//     margin-bottom: 15px;
+//     color: #333;
+//   }
+
+//   p {
+//     margin-bottom: 20px;
+//     line-height: 1.6;
+//     color: #555;
+//   }
+
+//   ul {
+//     list-style: none;
+//     padding: 0;
+
+//     li {
+//       margin: 10px 0;
+//       color: #444;
+//     }
+//   }
+
+//   h2 {
+//     margin-top: 30px;
+//     font-size: 1.5em;
+//     border-bottom: 2px solid #ddd;
+//     padding-bottom: 5px;
+//     margin-bottom: 15px;
+//     color: #333;
+//   }
+
+//   .back-button {
+//     padding: 10px 20px;
+//     margin-top: 20px;
+//     background-color: #007BFF;
+//     color: white;
+//     border: none;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     transition: background-color 0.3s ease;
+
+//     &:hover {
+//       background-color: #0056b3;
+//     }
+//   }
+// }
+
+/* Fondo de página */
+// body {
+//   background-color: #f4f4f9;
+//   font-family: 'Roboto', sans-serif;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .movie-details {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: flex-start;
+//   justify-content: center;
+//   padding: 20px;
+//   background-color: #fff;
+//   border-radius: 15px;
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+//   margin: 20px auto;
+//   max-width: 750px;
+//   width: 100%;
+//   transition: transform 0.3s ease;
+// }
+
+// .movie-details:hover {
+//   transform: translateY(-5px);
+// }
+
+// .movie-poster img {
+//   width: 250px;
+//   height: auto;
+//   border-radius: 10px;
+//   object-fit: cover;
+//   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+// }
+
+// .movie-info {
+//   padding-left: 20px;
+//   max-width: 800px;
+// }
+
+// .movie-title {
+//   font-size: 2.5em;
+//   font-weight: bold;
+//   color: #333;
+//   margin: 0;
+// }
+
+// .release-date {
+//   font-size: 1.1em;
+//   color: #666;
+//   margin-bottom: 15px;
+// }
+
+// .movie-description {
+//   font-size: 1.2em;
+//   color: #444;
+//   line-height: 1.6;
+//   margin-bottom: 20px;
+// }
+
+// .movie-rating {
+//   font-size: 1.2em;
+//   color: #ffbf00;
+//   margin-bottom: 20px;
+// }
+
+// .btn-watch {
+//   background-color: #ff5733;
+//   color: white;
+//   padding: 12px 20px;
+//   font-size: 1.1em;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease, transform 0.3s ease;
+// }
+
+// .btn-watch:hover {
+//   background-color: #ff2e00;
+//   transform: scale(1.05);
+// }
+
+// @media (max-width: 768px) {
+//   .movie-details {
+//     flex-direction: column;
+//     align-items: center;
+//     padding: 15px;
+//   }
+
+//   .movie-poster img {
+//     width: 200px;
+//   }
+
+//   .movie-info {
+//     padding-left: 0;
+//     text-align: center;
+//   }
+
+//   .movie-title {
+//     font-size: 2em;
+//   }
+
+//   .release-date, .movie-description {
+//     font-size: 1em;
+//   }
+// }
+
+// /* Estilo del reparto */
+// .movie-cast {
+//   margin-top: 30px;
+// }
+
+// .movie-cast h3 {
+//   font-size: 1.8em;
+//   font-weight: bold;
+//   color: #333;
+//   margin-bottom: 15px;
+// }
+
+// .cast-list {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 20px;
+// }
+
+// .cast-member {
+//   text-align: center;
+//   max-width: 150px;
+// }
+
+// .actor-photo {
+//   width: 120px;
+//   height: 120px;
+//   border-radius: 50%;
+//   object-fit: cover;
+//   border: 3px solid #ff5733;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   transition: transform 0.3s ease;
+// }
+
+// .actor-photo:hover {
+//   transform: scale(1.1);
+// }
+
+// .actor-name {
+//   font-size: 1.1em;
+//   font-weight: bold;
+//   color: #333;
+//   margin-top: 10px;
+//   text-transform: capitalize;
+//   word-wrap: break-word;
+// }
+
+
+// Variables
+$primary-color: #6366f1;
+$secondary-color: #4f46e5;
+$accent-color: #ec4899;
+$text-primary: #1f2937;
+$text-secondary: #6b7280;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$transition-speed: 0.3s;
+
+// Mixins
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@mixin hover-scale {
+  transition: transform $transition-speed ease;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+// Estilos principales
+.movie-details {
+  @include glass-effect;
+  max-width: 1200px;
+  margin: 2rem auto;
+  overflow: hidden;
+  box-shadow: 0 4px 20px $shadow-color;
+
+  // Grid layout para responsive
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 400px 1fr;
+  }
+
+  // Poster de la película
+  .movie-poster {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include hover-scale;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 100%
+      );
+    }
+  }
+
+  // Información de la película
+  .movie-info {
+    padding: 2rem;
+
+    .movie-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $text-primary;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, $primary-color, $accent-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .release-date {
+      color: $text-secondary;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .movie-description {
+      color: $text-primary;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    // Rating con estrellas
+    .movie-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+
+      span {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $primary-color;
+
+        &::before {
+          content: '⭐';
+          margin-right: 0.5rem;
+          animation: pulse 2s infinite;
+        }
+      }
+    }
+
+    // Botón de ver ahora
+    .btn-watch {
+      background: linear-gradient(45deg, $primary-color, $secondary-color);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 2rem;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all $transition-speed ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba($primary-color, 0.4);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Sección del reparto
+  .movie-cast {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($text-secondary, 0.2);
+
+    h3 {
+      color: $text-primary;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1F2AD6;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+      li {
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        background: rgba($primary-color, 0.05);
+        transition: background $transition-speed ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &:hover {
+          background: rgba($primary-color, 0.1);
+        }
+
+        strong {
+          display: block;
+          color: $primary-color;
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+// Animaciones
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+// Utilidades de accesibilidad
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  .movie-details {
+    background: rgba(17, 24, 39, 0.95);
+
+    .movie-info {
+      .movie-title {
+        background: linear-gradient(90deg, #818cf8, #ec4899);
+        -webkit-background-clip: text;
+      }
+
+      .movie-description {
+        color: #e5e7eb;
+      }
+    }
+
+    .movie-cast {
+      border-top-color: rgba(255, 255, 255, 0.1);
+
+      li {
+        background: rgba(255, 255, 255, 0.05);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+}

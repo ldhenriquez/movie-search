@@ -1,16 +1,21 @@
 <div class="search-container">
-  <input type="text" [(ngModel)]="query" placeholder="Search for movies...">
-  <button (click)="searchMovies()">Search</button>
-  <div *ngIf="movies.length">
+  <h1 class="title">Movie Search</h1>
+  <div class="content-search">
+    <input type="text" [(ngModel)]="query" placeholder="Search for movies...">
+    <button (click)="searchMovies()">Search</button>
+  </div>
+  <div *ngIf="movies.length" class="movie-list">
     <ul>
-      <li *ngFor="let movie of movies">
+      <li class="movie-item" *ngFor="let movie of movies">
         <a (click)="goToDetails(movie.id)">
-          <strong>{{ movie.title }}</strong> ({{ movie.release_date | date:'yyyy' }})
+          <h2 class="movie-title">{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</h2>
+          <p class="movie-description">{{ movie.overview }}</p>
         </a>
-        <p>{{ movie.overview }}</p>
       </li>
     </ul>
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
   </div>
 </div>
